@@ -1,7 +1,8 @@
 const cors = require('cors');
 
 const http = require('http');
-const userAc = require('./userRec')
+const userAc = require('./userRec');
+const work = require('./datasource.json');
 const Url = require('url');
 
 const server = http.createServer(function (req, res) {
@@ -19,7 +20,7 @@ const server = http.createServer(function (req, res) {
     } else if (req.url == '/user') {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.writeHead(200, { 'Content_Type': 'application/json' });
-        res.write(JSON.stringify(data));
+        res.write(JSON.stringify(work));
         res.end();
         ///addUsers
     } else if (req.url == '/userRec?username=Jane&age=26') {
